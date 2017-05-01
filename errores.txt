@@ -1,0 +1,1 @@
+Error corchete_cierre |  " ] "  | [Linea: 1] : Se ha introducido un caracter no valido, sustituyalo por un caracter valido

@@ -34,6 +34,31 @@ class Yytoken {
     }
 }
 
+//--------------------------------------
+class ErroresC {
+    ErroresC (String token, String tipo, int linea){
+        
+        //String del token reconocido
+        this.token = new String(token);
+        //Tipo de componente léxico encontrado
+        this.tipo = tipo;
+        //Número de linea
+        this.linea = linea;
+
+    }
+    //Métodos de los atributos de la clase
+    public String token;
+    public String tipo;
+    public int linea;
+
+    //Metodo que devuelve los datos necesarios que escribiremos en un archive de salida
+    public String toString() {
+        return "Error " + tipo +" |  \" "+token+" \"  | ["+"Linea: "+(linea)+ "] : Se ha introducido un caracter no valido, sustituyalo por un caracter valido";
+    }
+}
+
+
+
 /* Seccion de opciones y declaraciones de JFlex */
 
 /**
@@ -561,6 +586,7 @@ public class AnalizadorLexico {
 	
     private int contador;
     private ArrayList<Yytoken> tokens;
+    private ArrayList<ErroresC> errores;
 
 	private void writeOutputFile() throws IOException{
 			String filename = "file.out";
@@ -572,6 +598,18 @@ public class AnalizadorLexico {
 				out.write(t + "\n");
 			}
 			out.close();
+
+        //-----------------------------------------------------------------------
+            String filenameE = "errores.txt";
+			BufferedWriter error = new BufferedWriter(
+				new FileWriter(filenameE));
+            System.out.println("\n*** Tokens guardados en archivo ***\n");
+			for(ErroresC t: this.errores){
+				System.out.println(t);
+				error.write(t + "\n");
+			}
+			error.close();
+
 	}
 
 
@@ -584,6 +622,7 @@ public class AnalizadorLexico {
   public AnalizadorLexico(java.io.Reader in) {
       contador = 0;
 	tokens = new ArrayList<Yytoken>();
+        errores = new ArrayList<ErroresC>();
     this.zzReader = in;
   }
 
@@ -1116,6 +1155,8 @@ public class AnalizadorLexico {
           { contador++;
     Yytoken t = new Yytoken(contador,yytext(),"corchete_cierre",yyline,yycolumn);
     tokens.add(t);
+    ErroresC e = new ErroresC(yytext(),"corchete_cierre",yyline);
+    errores.add(e);
     return t;
           }
         case 105: break;

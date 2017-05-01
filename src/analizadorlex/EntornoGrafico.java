@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.JTextArea;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 /*
@@ -255,20 +256,26 @@ public class EntornoGrafico extends javax.swing.JFrame {
 
     private void jButton_cargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cargarActionPerformed
         textarea_salida.setText("");
+        textarea_salida1.setText("");
         Compilado c2 = new Compilado(); 
         c2.cargaLexemas(2);
-        File archivo = new File("file.out"); 
+        agregarTextoTarea(textarea_salida,"file.out");
+        agregarTextoTarea(textarea_salida1,"errores.txt");
+        
+    }//GEN-LAST:event_jButton_cargarActionPerformed
+      
+    public void agregarTextoTarea(JTextArea area, String path){
+        File archivo = new File(path); 
         try{
             BufferedReader leer=new BufferedReader(new FileReader(archivo));
             String linea=leer.readLine();
             while(linea!=null){
-                textarea_salida.append(linea+"\n");
+                area.append(linea+"\n");
                 linea=leer.readLine();
             }
         }catch(Exception e){}
-       
-    }//GEN-LAST:event_jButton_cargarActionPerformed
-
+    }
+    
     private String abrirArchivo(String path){
         String texto="",linea;
         FileReader fr = null;
@@ -298,7 +305,7 @@ public class EntornoGrafico extends javax.swing.JFrame {
        
         return texto;
     }
-    String guardar = "";
+    private String guardar = "";
     private void guardar (String ruta){
         path=ruta;
         BufferedWriter bw;
@@ -342,7 +349,7 @@ public class EntornoGrafico extends javax.swing.JFrame {
     }
         
     //Abrir
-    String path="";
+    private String path="";
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
          JFileChooser archivo = new JFileChooser();
          archivo.setFileFilter(new FileNameExtensionFilter(".txt", "txt"));
@@ -366,9 +373,14 @@ public class EntornoGrafico extends javax.swing.JFrame {
             if(JOptionPane.OK_OPTION == opcion){
                 guardarArchivoComo();
                 jTextPane1.setText("");
+                textarea_salida.setText("");
+                textarea_salida1.setText("");
             }
-            else if(opcion== JOptionPane.NO_OPTION)
+            else if(opcion== JOptionPane.NO_OPTION){
                 jTextPane1.setText("");
+                textarea_salida.setText("");
+                textarea_salida1.setText("");
+            }
         }
         else
             jTextPane1.setText("");
