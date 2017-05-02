@@ -272,9 +272,14 @@ public class EntornoGrafico extends javax.swing.JFrame {
         c2.cargaLexemas(2);
         agregarTextoTarea(textarea_salida,"file.out");
         agregarTextoTarea(textarea_salida1,"errores.txt");
-        
+        borrarArchivo("entrada.txt");
     }//GEN-LAST:event_jButton_cargarActionPerformed
       
+    public void borrarArchivo(String path){
+        File archivo = new File(path);     
+        archivo.delete();              
+    }
+    
     public void agregarTextoTarea(JTextArea area, String path){
         File archivo = new File(path); 
         try{
@@ -284,7 +289,10 @@ public class EntornoGrafico extends javax.swing.JFrame {
                 area.append(linea+"\n");
                 linea=leer.readLine();
             }
+            leer.close();
+            archivo.delete();
         }catch(Exception e){}
+            
     }
     
     

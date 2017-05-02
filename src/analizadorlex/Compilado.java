@@ -93,13 +93,13 @@ public class Compilado {
                         Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     
-                    /*finally {
+                    finally {
                         try {
-                            //bf.close();
+                            bf.close();
                         } catch (IOException ex) {
                             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
                         }
-                    }*/
+                    }
                     
                     //System.out.println(componente);
                     //System.out.println("\n*** Ejecucion finalizada ***\n");
