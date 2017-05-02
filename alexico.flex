@@ -51,7 +51,7 @@ class ErroresC {
 
     //Metodo que devuelve los datos necesarios que escribiremos en un archive de salida
     public String toString() {
-        return "Error " + tipo +" |  \" "+token+" \"  | ["+"Linea: "+(linea)+ "] : Se ha introducido un caracter no valido, sustituyalo por un caracter valido";
+        return "Error " + tipo +" | Error Lexico | \" "+token+" \"  | ["+"Linea: "+(linea)+ "] : Se ha introducido un caracter no valido, sustituyalo por un caracter valido";
     }
 }
 
@@ -924,6 +924,96 @@ COMENTARIO={EXP_COMENTARIO}({IDENTIFICADOR}|{NUMERO}|{ESPACIO}|{TABULADOR})*{EXP
      return t;
  }
 
+"\u00E1" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}
+
+"\u00C1" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}
+
+"\u00E9" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}   
+
+"\u00C9" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}  
+
+"\u00ED" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}  
+
+"\u00CD" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}  
+
+"\u00F3" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}  
+"\u00D3" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}
+
+"\u00FA" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}  
+
+"\u00DA" {
+    contador++;
+     Yytoken t = new Yytoken(contador,yytext(),"caracter_acento",yyline,yycolumn);
+     tokens.add(t);
+     ErroresC e = new ErroresC(yytext(),"caracter_acento",yyline);
+     errores.add(e);
+     return t;
+}    
+
+
 {ESPACIO} {
  	//ignorar
 }
@@ -935,13 +1025,4 @@ COMENTARIO={EXP_COMENTARIO}({IDENTIFICADOR}|{NUMERO}|{ESPACIO}|{TABULADOR})*{EXP
 }
 {COMENTARIO} {
         //ignorar
-}
-
-//Errores
-"\u005D"  {
-    contador++;
-    Yytoken t = new Yytoken(contador,yytext(),"corchete_cierre",yyline,yycolumn);
-    tokens.add(t);
-    //almacenarerror()
-    return t;
 }
