@@ -1,0 +1,3 @@
+analizadorlex.AnalizadorLexico
+analizadorlex.ErroresC
+analizadorlex.Yytoken

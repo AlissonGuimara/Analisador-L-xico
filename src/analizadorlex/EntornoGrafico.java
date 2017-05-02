@@ -70,8 +70,10 @@ public class EntornoGrafico extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,8 +82,6 @@ public class EntornoGrafico extends javax.swing.JFrame {
 
         jTextPane1.setFont(new java.awt.Font("Courier New", 1, 12)); // NOI18N
         jScrollPane3.setViewportView(jTextPane1);
-
-        jDesktopPane1.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -99,6 +99,7 @@ public class EntornoGrafico extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 388, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
+        jDesktopPane1.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -166,6 +167,11 @@ public class EntornoGrafico extends javax.swing.JFrame {
         jMenuBar1.setBackground(new java.awt.Color(255, 255, 255));
 
         jMenu1.setText("Archivo");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem4.setText("Abrir");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
@@ -199,12 +205,33 @@ public class EntornoGrafico extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem5);
 
+        jMenuItem3.setText("Ejemplo 1");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
+
+        jMenuItem6.setText("Ejemplo 2");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem6);
+
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Acerca de");
+        jMenu2.setText("Ayuda");
 
-        jMenuItem3.setText("Acerca de");
-        jMenu2.add(jMenuItem3);
+        jMenuItem7.setText("Acerca de ...");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMenuItem7);
 
         jMenuBar1.add(jMenu2);
 
@@ -389,6 +416,61 @@ public class EntornoGrafico extends javax.swing.JFrame {
         guardar="";
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        jTextPane1.setText(
+                "REFERENCE Programa2\n"+ 
+                "PROGRAM Programa1 START\n"+
+                "DEFINE INT variable1, variable2;\n"+
+                "DEFINE TEXT txt1, txt2;\n"+
+
+                "INIT SEGMENT(Parametros):\n"+
+                "#Rutinas iniciales para comenzar\n"+
+                "la ejecucion del programa#\n"+
+                "variable1=1;\n"+
+                "variable2=1;\n"+
+                "CALL metodoPrimero(parametros);\n"+
+                "CALL metodoExterno(parametros);\n"+
+                "END INIT SEGMENT\n"+ 
+
+                "INT SEGMENT metodoPrimero(Parametros):\n"+
+                "#Codigo va aqui#\n"+
+                "if(variable1==variable2){\n"+
+                "variable1++;\n"+
+                "}\n"+
+                "END SEGMENT metodoPrimero\n"+ 
+
+                "INT SEGMENT metodoSegundo(Parametros):\n"+
+                "#Codigo va aqui#\n"+
+                "END SEGMENT metodoSegundo\n"+ 
+
+                "PROGRAM END\n"
+                );
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        jTextPane1.setText(
+                "PROGRAM Programa2 START\n"+
+
+                "INT SEGMENT metodoExterno(Parametros):\n"+
+                "#Codigo va aqui#\n"+
+                "END SEGMENT metodoExterno\n"+
+
+                "PROGRAM END"
+                );
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        JOptionPane.showMessageDialog(null, "Integrantes: \n"+
+                "Edgar Camberos Arreola\n"+
+                "Jose Pablo Valenzuela Miramontes\n"+
+                "Francisco Javier Gallegos Godínez\n"+
+                "Ana Patricia Sánchez Jimenez");
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -442,6 +524,8 @@ public class EntornoGrafico extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

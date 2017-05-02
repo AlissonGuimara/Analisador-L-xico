@@ -1,5 +1,6 @@
 
-\
-¬
-°
-¡
+PROGRAM Programa2 START
+INT SEGMENT metodoExterno(Parametros):
+#Codigo va aqui#
+END SEGMENT metodoExterno
+PROGRAM END
