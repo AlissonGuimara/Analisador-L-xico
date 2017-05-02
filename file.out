@@ -1,1 +1,4 @@
-Token#1: ]|  Componente Lexico:  |corchete_cierre [Linea: 1]
+Token#1: \|  Componente Lexico:  |diagonal_inversa [Linea: 1]
+Token#2: ¬|  Componente Lexico:  |signo_negacion [Linea: 2]
+Token#3: °|  Componente Lexico:  |signo_grado [Linea: 3]
+Token#4: ¡|  Componente Lexico:  |apertura_exclamacion [Linea: 4]
