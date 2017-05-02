@@ -465,7 +465,7 @@ public class EntornoGrafico extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         JOptionPane.showMessageDialog(null, "Integrantes: \n"+
-                "Edgar Camberos Arreola\n"+
+                "Edgar Ulises Camberos Arreola\n"+
                 "Jose Pablo Valenzuela Miramontes\n"+
                 "Francisco Javier Gallegos Godínez\n"+
                 "Ana Patricia Sánchez Jimenez");
